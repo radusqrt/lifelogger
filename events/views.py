@@ -1,7 +1,11 @@
+import logging
+
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 
 from .models import Event
+
+logger = logging.getLogger("mylogger")
 
 
 def index(request):
@@ -13,5 +17,5 @@ def index(request):
 
 
 def detail(request, event_id):
-    event = get_object_or_404(Event, id=event_id)
+    event = get_object_or_404(Event, event_id=event_id)
     return render(request, "events/detail.html", {'event': event})

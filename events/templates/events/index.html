@@ -1,7 +1,7 @@
 {% if latest_events_list %}
     <ul>
     {% for event in latest_events_list %}
-    <li><a href="{% url 'events:detail' event.id %}">{{ event }}</a></li>
+    <li><a href="{% url 'events:detail' event.event_id %}">{{ event }}</a></li>
     {% endfor %}
     </ul>
 {% else %}

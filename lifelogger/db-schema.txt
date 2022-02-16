@@ -1,0 +1,58 @@
+Event
+===
+(PK)
+- event_id: INT64
+(One-to-one relationships)
+- sleep_id: INT64
+- food_id: INT64
+- symptom_group_id: INT64
+(Attributes)
+- type: ENUM
+    - SLEEP
+    - SPORT
+    - SYMPTOM_GROUP
+    - FOOD
+- creation_time: DATETIME
+
+SLEEP
+===
+(PK)
+- sleep_id: INT64
+(Attributes)
+- start_time: DATETIME
+- end_time: DATETIME
+- deep_period (minutes): INT64
+- rem_period (minutes): INT64
+- light_period (minutes): INT64
+- awake_period (minutes): INT64
+
+FOOD
+===
+(PK)
+- food_id: INT64
+(Many-to-one relationships)
+- recipe_id: INT64
+(Attributes)
+- ingredients: JSONField
+
+RECIPE
+===
+(PK)
+- recipe_id: INT64
+# (One-to-many relationships)
+# - food_id: INT64
+(Attributes)
+- name: CharField
+- ingredients: JSONField
+
+SYMPTOM_GROUP
+===
+(PK)
+- symptom_group_id: INT64
+(Attributes)
+- target_time: DATETIME
+- duration (minutes): INT64
+- has_ectopic_beat: BOOL
+- has_dizziness: BOOL
+- has_chest_pain: BOOL
+- has_shortness_of_breath: BOOL
