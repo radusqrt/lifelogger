@@ -14,18 +14,6 @@ Event
     - FOOD
 - creation_time: DATETIME
 
-SLEEP
-===
-(PK)
-- sleep_id: INT64
-(Attributes)
-- start_time: DATETIME
-- end_time: DATETIME
-- deep_period (minutes): INT64
-- rem_period (minutes): INT64
-- light_period (minutes): INT64
-- awake_period (minutes): INT64
-
 FOOD
 ===
 (PK)
@@ -44,15 +32,3 @@ RECIPE
 (Attributes)
 - name: CharField
 - ingredients: JSONField
-
-SYMPTOM_GROUP
-===
-(PK)
-- symptom_group_id: INT64
-(Attributes)
-- target_time: DATETIME
-- duration (minutes): INT64
-- has_ectopic_beat: BOOL
-- has_dizziness: BOOL
-- has_chest_pain: BOOL
-- has_shortness_of_breath: BOOL
